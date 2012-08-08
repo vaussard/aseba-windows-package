@@ -1,0 +1,8 @@
+Aseba packaging scripts for Windows
+
+	Florian Vaussard <florian dot vaussard at epfl dot ch> [1]
+	(Windows maintainer)
+
+	[1] Mobots group (http://mobots.epfl.ch)
+	Laboratory of Robotics Systems (http://lsro.epfl.ch)
+	EPFL, Lausanne (http://www.epfl.ch)
