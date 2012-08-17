@@ -99,46 +99,46 @@ SectionGroup "!Aseba" GroupAseba
 		File "${ASEBA_DEP_RELEASE_OR_DBG}\libgcc_s_dw2-1.dll"
 		File "${ASEBA_DEP_RELEASE_OR_DBG}\mingwm10.dll"
 		!ifdef RELEASE_PACKAGE
-			File "${ASEBA_DEP}\QtCore4.dll"
-			File "${ASEBA_DEP}\QtGui4.dll"
-			File "${ASEBA_DEP}\QtOpenGL4.dll"
-			File "${ASEBA_DEP}\QtXml4.dll"
-			File "${ASEBA_DEP}\QtHelp4.dll"
-			File "${ASEBA_DEP}\QtCLucene4.dll"
-			File "${ASEBA_DEP}\QtNetwork4.dll"
-			File "${ASEBA_DEP}\QtSql4.dll"
-			File "${ASEBA_DEP}\QtSvg4.dll"
-			File "${ASEBA_DEP}\qwt5.dll"
+			File "${ASEBA_DEP}\${QT_VERSION}\QtCore4.dll"
+			File "${ASEBA_DEP}\${QT_VERSION}\QtGui4.dll"
+			File "${ASEBA_DEP}\${QT_VERSION}\QtOpenGL4.dll"
+			File "${ASEBA_DEP}\${QT_VERSION}\QtXml4.dll"
+			File "${ASEBA_DEP}\${QT_VERSION}\QtHelp4.dll"
+			File "${ASEBA_DEP}\${QT_VERSION}\QtCLucene4.dll"
+			File "${ASEBA_DEP}\${QT_VERSION}\QtNetwork4.dll"
+			File "${ASEBA_DEP}\${QT_VERSION}\QtSql4.dll"
+			File "${ASEBA_DEP}\${QT_VERSION}\QtSvg4.dll"
+			File "${ASEBA_DEP}\${QT_VERSION}\qwt5.dll"
 			File "${ASEBA_DEP}\SDL.dll"
 		!endif
 		!ifdef DEBUG_PACKAGE
-			File "${ASEBA_DEP_DBG}\QtCored4.dll"
-			File "${ASEBA_DEP_DBG}\QtGuid4.dll"
-			File "${ASEBA_DEP_DBG}\QtOpenGLd4.dll"
-			File "${ASEBA_DEP_DBG}\QtXmld4.dll"
-			File "${ASEBA_DEP_DBG}\QtHelpd4.dll"
-			File "${ASEBA_DEP_DBG}\QtCLucened4.dll"
-			File "${ASEBA_DEP_DBG}\QtNetworkd4.dll"
-			File "${ASEBA_DEP_DBG}\QtSqld4.dll"
-			File "${ASEBA_DEP_DBG}\QtSvgd4.dll"
-			File "${ASEBA_DEP_DBG}\qwtd5.dll"
+			File "${ASEBA_DEP_DBG}\${QT_VERSION}\QtCored4.dll"
+			File "${ASEBA_DEP_DBG}\${QT_VERSION}\QtGuid4.dll"
+			File "${ASEBA_DEP_DBG}\${QT_VERSION}\QtOpenGLd4.dll"
+			File "${ASEBA_DEP_DBG}\${QT_VERSION}\QtXmld4.dll"
+			File "${ASEBA_DEP_DBG}\${QT_VERSION}\QtHelpd4.dll"
+			File "${ASEBA_DEP_DBG}\${QT_VERSION}\QtCLucened4.dll"
+			File "${ASEBA_DEP_DBG}\${QT_VERSION}\QtNetworkd4.dll"
+			File "${ASEBA_DEP_DBG}\${QT_VERSION}\QtSqld4.dll"
+			File "${ASEBA_DEP_DBG}\${QT_VERSION}\QtSvgd4.dll"
+			File "${ASEBA_DEP_DBG}\${QT_VERSION}\qwtd5.dll"
 			File "${ASEBA_DEP_DBG}\SDL.dll"
 		!endif
 
 		SetOutPath "$INSTDIR\sqldrivers"
 		!ifdef RELEASE_PACKAGE
-			File "${ASEBA_DEP}\qsqlite4.dll"
+			File "${ASEBA_DEP}\${QT_VERSION}\qsqlite4.dll"
 		!endif
 		!ifdef DEBUG_PACKAGE
-			File "${ASEBA_DEP_DBG}\qsqlited4.dll"
+			File "${ASEBA_DEP_DBG}\${QT_VERSION}\qsqlited4.dll"
 		!endif
 
 		SetOutPath "$INSTDIR\iconengines"
 		!ifdef RELEASE_PACKAGE
-			File "${ASEBA_DEP}\qsvgicon4.dll"
+			File "${ASEBA_DEP}\${QT_VERSION}\qsvgicon4.dll"
 		!endif
 		!ifdef DEBUG_PACKAGE
-			File "${ASEBA_DEP_DBG}\qsvgicond4.dll"
+			File "${ASEBA_DEP_DBG}\${QT_VERSION}\qsvgicond4.dll"
 		!endif
 		!endif ;FAKE_PACKAGE
 
