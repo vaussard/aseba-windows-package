@@ -95,7 +95,7 @@ SectionGroup "!Libraries" GroupLib
 		SetOutPath "$INSTDIR\lib"
 
 		# Main files
-		File "${DASHEL_SRC}\lib*.a"
+		File "${DASHEL_BIN}\lib*.a"
 	SectionEnd
 
 	Section "!Aseba" SecAseba
