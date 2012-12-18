@@ -239,11 +239,41 @@ Section "-Install the driver" InstDriver	; Hidden section -> always executed
 		
 		DetailPrint $(STR_Drv_Install)
 
-		File "${DRV_SRC}\mchpcdc.inf"
-		File "${DRV_SRC}\mchpcdc.cat"
+		${If} ${AtLeastWin8}
+			; Windows 8 or above
+			DetailPrint "We are on Windows 8 (or above)"
+			File "${DRV_INF_WIN8}\mchpcdc.inf"
+			File "${DRV_INF_WIN8}\mchpcdc.cat"
+			File "${DRV_INF_WIN8}\certmgr_x86.exe"
+			File "${DRV_INF_WIN8}\certmgr_x64.exe"
+			File "${DRV_INF_WIN8}\mobsya_pub.cer"
+
+			; We must install the security certificate in we are on Windows 8
+			DetailPrint "Installing the security certificate..."
+			${If} ${RunningX64}
+				ExecWait '"$INSTDIR\drivers\certmgr_x64.exe" -add -c "$INSTDIR\drivers\mobsya_pub.cer" -s -r LocalMachine root' $0
+			${Else}
+				ExecWait '"$INSTDIR\drivers\certmgr_x86.exe" -add -c "$INSTDIR\drivers\mobsya_pub.cer" -s -r LocalMachine root' $0
+			${EndIf}
+			DetailPrint "Done."
+			IntCmp $0 0x0 cert_ok cert_error cert_error
+			cert_ok:
+				DetailPrint "Certificate installed"
+				Goto cert_done
+			cert_error:
+				DetailPrint "A problem occured"
+			cert_done:
+			; Done
+		${Else}
+			; Other windows
+			DetailPrint "We are on Windows XP or above"
+			File "${DRV_INF_WIN}\mchpcdc.inf"
+			File "${DRV_INF_WIN}\mchpcdc.cat"
+		${EndIf}
+
 		File "${DRV_SRC}\dpinst32.exe"
 		File "${DRV_SRC}\dpinst64.exe"
-		
+
 		${If} ${RunningX64}
 			DetailPrint $(STR_Drv_64bits)
 			ExecWait '"$INSTDIR\drivers\dpinst64.exe" /c /sa /lm /sw /PATH "$INSTDIR\drivers"' $0
@@ -389,7 +419,28 @@ Section "Uninstall"
 		${Else}
 			DetailPrint $(STR_Drv_32bits)
 			ExecWait '"$INSTDIR\drivers\dpinst32.exe" /c /u "$INSTDIR\drivers\mchpcdc.inf" /d'
-		${EndIf}	
+		${EndIf}
+
+		${If} ${AtLeastWin8}
+			; Windows 8 or above
+			; We must uninstall our certificate
+			DetailPrint "Uninstalling the security certificate..."
+			${If} ${RunningX64}
+				ExecWait '"$INSTDIR\drivers\certmgr_x64.exe" -del -c -n "Mobsya Code Signing Entity" -s -r LocalMachine root' $0
+			${Else}
+				ExecWait '"$INSTDIR\drivers\certmgr_x86.exe" -del -c -n "Mobsya Code Signing Entity" -s -r LocalMachine root' $0
+			${EndIf}
+			DetailPrint "Done."
+			IntCmp $0 0x0 cert_un_ok cert_un_error cert_un_error
+			cert_un_ok:
+				DetailPrint "Certificate uninstalled"
+				Goto cert_un_done
+			cert_un_error:
+				DetailPrint "A problem occured"
+			cert_un_done:
+			; Done
+		${EndIf}
+
 		RMDir /r "$INSTDIR\drivers"
 		DetailPrint $(STR_Done)
 	${EndIf}

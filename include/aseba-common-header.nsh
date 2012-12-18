@@ -24,6 +24,7 @@
   !include "MUI2.nsh"		; Modern UI 2
   !include nsDialogs.nsh	; custom dialogs
   !include LogicLib.nsh		; ${If} statement
+  !include "WinVer.nsh"		; To test the Windows version
 
   ; Compression
   SetCompressor /SOLID lzma
@@ -45,9 +46,12 @@
   !define ASEBA_DEP "..\src\dependencies"
   !define ASEBA_DEP_DBG "..\src\dependencies\debug"
 
-  !define DASHEL_SRC "..\src\dashel\dashel"		; Dashel svn
+  !define DASHEL_SRC "..\git\dashel"		; Dashel git
+  !define DASHEL_BIN "..\git\dashel-build"
 
   !define DRV_SRC "..\src\thymio-drv"
+  !define DRV_INF_WIN "..\src\thymio-drv\win_xp-7"
+  !define DRV_INF_WIN8 "..\src\thymio-drv\win_8"
   !define DEVCON_SRC "..\src\devcon"
   !define EPUCK_KIT "..\src\epuck-kit"
   
