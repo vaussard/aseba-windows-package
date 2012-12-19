@@ -43,7 +43,17 @@ SectionGroup "!Aseba" GroupAseba
 		File "${ASEBA_BIN_RELEASE_OR_DBG}\studio\aseba-doc.qhc"
 		File "${ASEBA_BIN_RELEASE_OR_DBG}\studio\aseba-doc.qch"
 		File "${ASEBA_SRC}\menu\windows\asebastudio.ico"
-		File "${ASEBA_SRC}\menu\windows\asebathymio.ico"
+
+		${If} $FullInstall == "true"
+			; Install the ThymioII stuff here
+			File "${ASEBA_SRC}\menu\windows\asebathymio.ico"
+			!ifdef RELEASE_PACKAGE
+				File "${ASEBA_BIN_STRIP}\thymioflasher.exe"
+			!endif
+			!ifdef DEBUG_PACKAGE
+				File "${ASEBA_BIN_DBG}\thymioflasher\thymioflasher.exe"
+			!endif
+		${EndIf}
 		
 		# Version file (version.txt)
 		Call WriteVersionFile
@@ -83,9 +93,13 @@ SectionGroup "!Aseba" GroupAseba
 			${Else}
 				!insertmacro CreateInternetShortcut "$SMPROGRAMS\$StartMenuFolder\$(STR_Doc_Dir)\$(STR_Doc_Browser_Online)" "http://aseba.wikidot.com/en:asebausermanual" "$INSTDIR\asebathymio.ico" "0"
 			${EndIf}
-			; Aseba Thymio with auto-refresh
+			; Thymio stuff?
 			${If} $FullInstall == "true"
+				; Aseba Thymio with auto-refresh
 				CreateShortCut "$SMPROGRAMS\$StartMenuFolder\$(STR_Package_Name_Thymio).lnk" "$INSTDIR\asebastudio.exe" "-ar ser:name=Thymio-II" "$INSTDIR\asebathymio.ico"
+				; Thymio flasher
+				CreateDirectory "$SMPROGRAMS\$StartMenuFolder\Thymio Flasher"
+				CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Thymio Flasher\Thymio Flasher.lnk" "$INSTDIR\thymioflasher.exe" "" "$INSTDIR\asebathymio.ico"
 			${EndIf}
 		!insertmacro MUI_STARTMENU_WRITE_END
 	SectionEnd
