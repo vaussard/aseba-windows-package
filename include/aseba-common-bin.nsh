@@ -348,6 +348,16 @@ Section "-Install the e-puck kit" InstEpuck	; Hidden section -> always executed
 	${EndIf}
 SectionEnd
 
+Section "-PostInstall"
+	DetailPrint "Post install..."
+
+	; Black voodoo to order the menu correctly
+	DeleteRegKey HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\MenuOrder\Start Menu\Programs\Aseba Studio"
+	DeleteRegKey HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\MenuOrder\Start Menu2\Programs\Aseba Studio"
+
+	DetailPrint "Done."
+SectionEnd
+
 ; First function to be executed by the installer
 Function .onInit
 	; Display the "Language Select" menu
