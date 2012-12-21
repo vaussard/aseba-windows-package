@@ -196,7 +196,7 @@ SectionGroup $(NAME_GroupCLI) GroupCLI
 
 		SetOutPath "$INSTDIR"
 
-		!ifdef RELEASE_DEBUG
+		!ifdef RELEASE_PACKAGE
 			File "${ASEBA_BIN_STRIP}\asebaswitch.exe"
 		!endif
 		!ifdef DEBUG_PACKAGE
