@@ -22,7 +22,7 @@
 ;Includes
 
   !define DEVEL_PACKAGE							; Do not include all features of our nsi scripts
-  !define REGISTRY_KEY "Software\aseba"
+  !define REGISTRY_KEY "Software\asebadev"
   !addincludedir ".\include"
   !include aseba-common-header.nsh
   !include "${ASEBA_BIN}\version.nsi"			; Get NSIS style version number
