@@ -47,6 +47,7 @@ SectionGroup "!Aseba" GroupAseba
 		${If} $FullInstall == "true"
 			; Install the ThymioII stuff here
 			File "${ASEBA_SRC}\menu\windows\asebathymio.ico"
+			File "${ASEBA_SRC}\menu\windows\thymioflasher.ico"
 			!ifdef RELEASE_PACKAGE
 				File "${ASEBA_BIN_STRIP}\thymioflasher.exe"
 			!endif
@@ -99,7 +100,7 @@ SectionGroup "!Aseba" GroupAseba
 				CreateShortCut "$SMPROGRAMS\$StartMenuFolder\$(STR_Package_Name_Thymio).lnk" "$INSTDIR\asebastudio.exe" "-ar ser:name=Thymio-II" "$INSTDIR\asebathymio.ico"
 				; Thymio flasher
 				CreateDirectory "$SMPROGRAMS\$StartMenuFolder\Thymio Flasher"
-				CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Thymio Flasher\Thymio Flasher.lnk" "$INSTDIR\thymioflasher.exe" "" "$INSTDIR\asebathymio.ico"
+				CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Thymio Flasher\Thymio Flasher.lnk" "$INSTDIR\thymioflasher.exe" "" "$INSTDIR\thymioflasher.ico"
 			${EndIf}
 		!insertmacro MUI_STARTMENU_WRITE_END
 	SectionEnd
