@@ -120,7 +120,9 @@ SectionGroup "!Headers" GroupHeaders
 		!insertmacro ASEBA_INSTALL_HEADER "vm"
 		!insertmacro ASEBA_INSTALL_HEADER "transport\buffer"
 		!insertmacro ASEBA_INSTALL_HEADER_FILE "utils" "utils.h"
+		!insertmacro ASEBA_INSTALL_HEADER_FILE "utils" "FormatableString.h"
 		!insertmacro ASEBA_INSTALL_HEADER_FILE "compiler" "compiler.h"
+		!insertmacro ASEBA_INSTALL_HEADER_FILE "compiler" "errors_code.h"
 	SectionEnd
 SectionGroupEnd
 
