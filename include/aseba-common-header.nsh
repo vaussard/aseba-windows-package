@@ -36,7 +36,8 @@
 									; --> Comment this line out for release
   !define DEV_VERSION							; Take into account new features
 ;  !define QT_VERSION "qt-4.7.4"
-  !define QT_VERSION "qt-4.8.2"
+;  !define QT_VERSION "qt-4.8.2"
+  !define QT_VERSION "qt-4.8.4"
 
   !define ASEBA_SRC "..\git\aseba"
   !define ASEBA_BIN "..\git\aseba-build"			; Git
