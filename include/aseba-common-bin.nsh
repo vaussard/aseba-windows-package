@@ -113,6 +113,7 @@ SectionGroup "!Aseba" GroupAseba
 		!ifndef FAKE_PACKAGE
 		File "${ASEBA_DEP_RELEASE_OR_DBG}\libgcc_s_dw2-1.dll"
 		File "${ASEBA_DEP_RELEASE_OR_DBG}\mingwm10.dll"
+		File "${ASEBA_DEP_RELEASE_OR_DBG}\libstdc++-6.dll"
 		!ifdef RELEASE_PACKAGE
 			File "${ASEBA_DEP}\${QT_VERSION}\QtCore4.dll"
 			File "${ASEBA_DEP}\${QT_VERSION}\QtGui4.dll"
