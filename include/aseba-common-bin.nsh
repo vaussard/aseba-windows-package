@@ -49,10 +49,10 @@ SectionGroup "!Aseba" GroupAseba
 			File "${ASEBA_SRC}\menu\windows\asebathymio.ico"
 			File "${ASEBA_SRC}\menu\windows\thymioflasher.ico"
 			!ifdef RELEASE_PACKAGE
-				File "${ASEBA_BIN_STRIP}\thymioflasher.exe"
+				File "${ASEBA_BIN_STRIP}\thymioupdater.exe"
 			!endif
 			!ifdef DEBUG_PACKAGE
-				File "${ASEBA_BIN_DBG}\thymioflasher\thymioflasher.exe"
+				File "${ASEBA_BIN_DBG}\thymioupdater\thymioupdater.exe"
 			!endif
 		${EndIf}
 		
@@ -99,8 +99,8 @@ SectionGroup "!Aseba" GroupAseba
 				; Aseba Thymio with auto-refresh
 				CreateShortCut "$SMPROGRAMS\$StartMenuFolder\$(STR_Package_Name_Thymio).lnk" "$INSTDIR\asebastudio.exe" "-ar ser:name=Thymio-II" "$INSTDIR\asebathymio.ico"
 				; Thymio flasher
-				CreateDirectory "$SMPROGRAMS\$StartMenuFolder\Thymio Flasher"
-				CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Thymio Flasher\Thymio Flasher.lnk" "$INSTDIR\thymioflasher.exe" "" "$INSTDIR\thymioflasher.ico"
+				CreateDirectory "$SMPROGRAMS\$StartMenuFolder\Thymio Firmware Updater"
+				CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Thymio Firmware Updater\Thymio Firmware Updater.lnk" "$INSTDIR\thymioupdater.exe" "" "$INSTDIR\thymioflasher.ico"
 			${EndIf}
 		!insertmacro MUI_STARTMENU_WRITE_END
 	SectionEnd
