@@ -386,6 +386,12 @@ Function .onInit
 	IntOp $0 $0 | ${SF_RO}
 	SectionSetFlags ${SecQt} $0
 
+	IfSilent 0 +5
+		StrCpy $FullInstall "true" ; for silent install
+		SectionGetFlags ${SecTools} $0
+		IntOp $0 $0 | ${SF_SELECTED}
+		SectionSetFlags ${SecTools} $0
+
 	; Check for a previous installation
 	ReadRegStr $0 HKCU ${REGISTRY_KEY} ""	; Read installation folder
 	${If} $0 != ""
@@ -400,7 +406,7 @@ Function .onInit
 			StrCpy $FullInstall "false"
 		${EndIf}
 
-		MessageBox MB_YESNO $(STR_Previous_Install) IDNO cancel IDYES ok
+		MessageBox MB_YESNO $(STR_Previous_Install) /SD IDYES IDNO cancel IDYES ok
 
 		cancel:
 			Abort
