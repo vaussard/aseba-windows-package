@@ -28,6 +28,9 @@ InstType $(STR_InstallMin)
 !endif
 
 Section "-Init before install" InitBeforeInst	; Hidden section -> always executed
+	; Create the output directory, if it doesn't exist
+	SetOutPath "$INSTDIR"
+
 	; Enable logging
 	LogSet ${LOG_TO_FILE}
 
