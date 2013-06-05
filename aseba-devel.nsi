@@ -102,7 +102,7 @@ SectionGroup "!Libraries" GroupLib
 		SetOutPath "$INSTDIR\lib"
 
 		# Main files
-		File "${ASEBA_BIN}\lib*.a"
+		File /r "${ASEBA_BIN}\lib*.a"
 	SectionEnd
 SectionGroupEnd
 
@@ -115,12 +115,12 @@ SectionGroup "!Headers" GroupHeaders
 	SectionEnd
 
 	Section "!Aseba" SecHeaderAseba
-		!insertmacro ASEBA_INSTALL_HEADER "msg"
+		!insertmacro ASEBA_INSTALL_HEADER "common\msg"
 		!insertmacro ASEBA_INSTALL_HEADER "common"
 		!insertmacro ASEBA_INSTALL_HEADER "vm"
 		!insertmacro ASEBA_INSTALL_HEADER "transport\buffer"
-		!insertmacro ASEBA_INSTALL_HEADER_FILE "utils" "utils.h"
-		!insertmacro ASEBA_INSTALL_HEADER_FILE "utils" "FormatableString.h"
+		!insertmacro ASEBA_INSTALL_HEADER_FILE "common\utils" "utils.h"
+		!insertmacro ASEBA_INSTALL_HEADER_FILE "common\utils" "FormatableString.h"
 		!insertmacro ASEBA_INSTALL_HEADER_FILE "compiler" "compiler.h"
 		!insertmacro ASEBA_INSTALL_HEADER_FILE "compiler" "errors_code.h"
 	SectionEnd
@@ -130,8 +130,8 @@ SectionGroup "!Examples"
 	Section "Replay"
 		SetOutPath "$INSTDIR\examples\replay"
 		
-		File "${ASEBA_SRC}\replay\*.txt"
-		File "${ASEBA_SRC}\replay\*.cpp"
+		File "${ASEBA_SRC}\clients\replay\*.txt"
+		File "${ASEBA_SRC}\clients\replay\*.cpp"
 	SectionEnd
 SectionGroupEnd
 

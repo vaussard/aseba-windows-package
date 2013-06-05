@@ -38,10 +38,10 @@ SectionGroup "!Aseba" GroupAseba
 			File "${ASEBA_BIN_STRIP}\asebastudio.exe"
 		!endif
 		!ifdef DEBUG_PACKAGE
-			File "${ASEBA_BIN_DBG}\studio\asebastudio.exe"
+			File "${ASEBA_BIN_DBG}\clients\studio\asebastudio.exe"
 		!endif
-		File "${ASEBA_BIN_RELEASE_OR_DBG}\studio\aseba-doc.qhc"
-		File "${ASEBA_BIN_RELEASE_OR_DBG}\studio\aseba-doc.qch"
+		File "${ASEBA_SRC}\clients\studio\aseba-doc.qhc"
+		File "${ASEBA_SRC}\clients\studio\aseba-doc.qch"
 		File "${ASEBA_SRC}\menu\windows\asebastudio.ico"
 
 		${If} $FullInstall == "true"
@@ -52,7 +52,7 @@ SectionGroup "!Aseba" GroupAseba
 				File "${ASEBA_BIN_STRIP}\thymioupdater.exe"
 			!endif
 			!ifdef DEBUG_PACKAGE
-				File "${ASEBA_BIN_DBG}\thymioupdater\thymioupdater.exe"
+				File "${ASEBA_BIN_DBG}\clients\thymioupdater\thymioupdater.exe"
 			!endif
 		${EndIf}
 		
@@ -202,7 +202,7 @@ SectionGroup $(NAME_GroupCLI) GroupCLI
 			File "${ASEBA_BIN_STRIP}\asebaswitch.exe"
 		!endif
 		!ifdef DEBUG_PACKAGE
-			File "${ASEBA_BIN_DBG}\switch\asebaswitch.exe"
+			File "${ASEBA_BIN_DBG}\switches\switch\asebaswitch.exe"
 		!endif
 
 
@@ -229,12 +229,12 @@ SectionGroup $(NAME_GroupCLI) GroupCLI
 		File "${ASEBA_BIN_STRIP}\asebadummynode.exe"
 		!endif
 		!ifdef DEBUG_PACKAGE
-		File "${ASEBA_BIN_DBG}\cmd\asebacmd.exe"
-		File "${ASEBA_BIN_DBG}\dump\asebadump.exe"
-		File "${ASEBA_BIN_DBG}\eventlogger\asebaeventlogger.exe"
-		File "${ASEBA_BIN_DBG}\replay\asebaplay.exe"
-		File "${ASEBA_BIN_DBG}\replay\asebarec.exe"
-		File "${ASEBA_BIN_DBG}\exec\asebaexec.exe"
+		File "${ASEBA_BIN_DBG}\clients\cmd\asebacmd.exe"
+		File "${ASEBA_BIN_DBG}\clients\dump\asebadump.exe"
+		File "${ASEBA_BIN_DBG}\clients\eventlogger\asebaeventlogger.exe"
+		File "${ASEBA_BIN_DBG}\clients\replay\asebaplay.exe"
+		File "${ASEBA_BIN_DBG}\clients\replay\asebarec.exe"
+		File "${ASEBA_BIN_DBG}\clients\exec\asebaexec.exe"
 		File "${ASEBA_BIN_DBG}\targets\dummy\asebadummynode.exe"
 		!endif
 		!endif ; FAKE_PACKAGE
