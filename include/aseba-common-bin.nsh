@@ -47,12 +47,15 @@ SectionGroup "!Aseba" GroupAseba
 		${If} $FullInstall == "true"
 			; Install the ThymioII stuff here
 			File "${ASEBA_SRC}\menu\windows\asebathymio.ico"
+			File "${ASEBA_SRC}\menu\windows\thymiovpl.ico"
 			File "${ASEBA_SRC}\menu\windows\thymioflasher.ico"
 			!ifdef RELEASE_PACKAGE
 				File "${ASEBA_BIN_STRIP}\thymioupgrader.exe"
+				File "${ASEBA_BIN_STRIP}\thymiovpl.exe"
 			!endif
 			!ifdef DEBUG_PACKAGE
 				File "${ASEBA_BIN_DBG}\clients\thymioupgrader\thymioupgrader.exe"
+				File "${ASEBA_BIN_DBG}\clients\studio\thymiovpl.exe"
 			!endif
 		${EndIf}
 		
@@ -98,6 +101,8 @@ SectionGroup "!Aseba" GroupAseba
 			${If} $FullInstall == "true"
 				; Aseba Thymio with auto-refresh
 				CreateShortCut "$SMPROGRAMS\$StartMenuFolder\$(STR_Package_Name_Thymio).lnk" "$INSTDIR\asebastudio.exe" "-ar ser:name=Thymio-II" "$INSTDIR\asebathymio.ico"
+				; Thymio VPL
+				CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Thymio VPL.lnk" "$INSTDIR\thymiovpl.exe" "-ar ser:name=Thymio-II" "$INSTDIR\thymiovpl.ico"
 				; Thymio flasher
 				CreateDirectory "$SMPROGRAMS\$StartMenuFolder\Thymio Firmware Upgrader"
 				CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Thymio Firmware Upgrader\Thymio Firmware Upgrader.lnk" "$INSTDIR\thymioupgrader.exe" "" "$INSTDIR\thymioflasher.ico"
