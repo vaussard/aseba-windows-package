@@ -54,8 +54,7 @@
   !define DRV_INF_WIN "..\src\thymio-drv\win_xp-7"
   !define DRV_INF_WIN8 "..\src\thymio-drv\win_8"
   !define DEVCON_SRC "..\src\devcon"
-  !define EPUCK_KIT "..\src\epuck-kit"
-  
+    
   !define LOG_TO_FILE on 		; on / off. You need a special build of NSIS with logging enabled. To be downloaded on the NSIS website
   
   ShowInstDetails show

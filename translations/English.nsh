@@ -8,7 +8,7 @@
 !insertmacro LANG_STRING STR_Clean  "Cleaning any previous installation..."
 !insertmacro LANG_STRING STR_Install_Type  "Installation type"
 !insertmacro LANG_STRING STR_Components  "Please choose the components you want to include"
-!insertmacro LANG_STRING STR_Robot_Install "ThymioII and E-puck (Recommanded)"
+!insertmacro LANG_STRING STR_Robot_Install "ThymioII Package (Recommanded)"
 !insertmacro LANG_STRING STR_Aseba_Install "Only Aseba"
 !insertmacro LANG_STRING STR_Previous_Install "Previous installation detected. Do you still want to continue?"
 
@@ -18,9 +18,6 @@
 !insertmacro LANG_STRING STR_Tools  "Tools"
 !insertmacro LANG_STRING STR_Cmd_Line  "Open terminal"
 !insertmacro LANG_STRING STR_USB_Restart  "Restart USB port"
-!insertmacro LANG_STRING STR_Epuck_Menu  "Epuck Kit"
-!insertmacro LANG_STRING STR_Epuck_Guide  "Installation guide"
-!insertmacro LANG_STRING STR_Epuck_Folder  "Related Files"
 !insertmacro LANG_STRING STR_Doc_Dir  "Documentation"
 !insertmacro LANG_STRING STR_Doc_Browser_Offline  "Offline help (on disk)"
 !insertmacro LANG_STRING STR_Doc_Browser_Online  "Online help (internet)"

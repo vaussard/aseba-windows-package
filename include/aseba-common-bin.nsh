@@ -323,33 +323,6 @@ Section "-Install devcon" InstDevcon	; Hidden section -> always executed
 	${EndIf}
 SectionEnd
 
-Section "-Install the e-puck kit" InstEpuck	; Hidden section -> always executed
-	${If} $FullInstall == "true"
-		; Install the e-puck kit
-		CreateDirectory "$INSTDIR\epuck"
-		SetOutPath "$INSTDIR\epuck"
-		
-		DetailPrint $(STR_Epuck_Install)
-
-		File "${EPUCK_KIT}\install.html"
-		File "${ASEBA_SRC}\targets\e-puck\hex\epuckaseba.hex"
-		File "${ASEBA_SRC}\targets\e-puck\hex\epuckBTseteventfilter.hex"		
-
-		CreateDirectory "$INSTDIR\epuck\examples"
-		SetOutPath "$INSTDIR\epuck\examples"
-		
-		File "${ASEBA_SRC}\targets\e-puck\examples\aseba-epuck-article.aesl"		
-		File "${ASEBA_SRC}\targets\e-puck\examples\black-stripple-following.aesl"		
-		
-		SetShellVarContext all		; current / all. Install program for all users
-		!insertmacro MUI_STARTMENU_WRITE_BEGIN Application
-			CreateDirectory "$SMPROGRAMS\$StartMenuFolder\$(STR_Epuck_Menu)"
-			CreateShortCut "$SMPROGRAMS\$StartMenuFolder\$(STR_Epuck_Menu)\$(STR_Epuck_Guide).lnk" "$INSTDIR\epuck\install.html" "$INSTDIR"
-			CreateShortCut "$SMPROGRAMS\$StartMenuFolder\$(STR_Epuck_Menu)\$(STR_Epuck_Folder).lnk" "explorer.exe" "$INSTDIR\epuck"
-		!insertmacro MUI_STARTMENU_WRITE_END
-	${EndIf}
-SectionEnd
-
 Section "-PostInstall"
 	DetailPrint "Post install..."
 
@@ -367,7 +340,7 @@ Function .onInit
 
 	; Load bitmaps
 	InitPluginsDir
-	File /oname=$PLUGINSDIR\thymio2.bmp "thymio2-epuck.bmp"
+	File /oname=$PLUGINSDIR\thymio2.bmp "thymio2.bmp"
 	File /oname=$PLUGINSDIR\studio.bmp "studio.bmp"
 
 	; Group Studio as Read-only and Expanded
