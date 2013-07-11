@@ -232,6 +232,7 @@ SectionGroup $(NAME_GroupCLI) GroupCLI
 		File "${ASEBA_BIN_STRIP}\asebarec.exe"    
 		File "${ASEBA_BIN_STRIP}\asebaexec.exe"
 		File "${ASEBA_BIN_STRIP}\asebadummynode.exe"
+		File "${ASEBA_BIN_STRIP}\asebashell.exe"
 		!endif
 		!ifdef DEBUG_PACKAGE
 		File "${ASEBA_BIN_DBG}\clients\cmd\asebacmd.exe"
@@ -241,6 +242,7 @@ SectionGroup $(NAME_GroupCLI) GroupCLI
 		File "${ASEBA_BIN_DBG}\clients\replay\asebarec.exe"
 		File "${ASEBA_BIN_DBG}\clients\exec\asebaexec.exe"
 		File "${ASEBA_BIN_DBG}\targets\dummy\asebadummynode.exe"
+		File "${ASEBA_BIN_DBG}\examples\clients\cpp-shell\asebashell.exe"
 		!endif
 		!endif ; FAKE_PACKAGE
 
