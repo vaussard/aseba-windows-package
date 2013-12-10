@@ -8,7 +8,7 @@
 !insertmacro LANG_STRING STR_Clean  "Cleaning any previous installation..."
 !insertmacro LANG_STRING STR_Install_Type  "Installation type"
 !insertmacro LANG_STRING STR_Components  "Please choose the components you want to include"
-!insertmacro LANG_STRING STR_Robot_Install "ThymioII Package (Recommanded)"
+!insertmacro LANG_STRING STR_Robot_Install "ThymioII Package (Recommended)"
 !insertmacro LANG_STRING STR_Aseba_Install "Only Aseba"
 !insertmacro LANG_STRING STR_Previous_Install "Previous installation detected. Do you still want to continue?"
 
